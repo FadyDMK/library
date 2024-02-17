@@ -1,14 +1,19 @@
 const books = document.querySelector('.main');
+const add = document.querySelector('#add')
+const addMenu = document.querySelector('#addMenu')
+
+add.addEventListener('click', () => {
+    addMenu.showModal();
+});
 
 
-
-const myLibrary = [];
 class Book {
     constructor(title, author, pages, read) {
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.read = read;
+
     }
 
     display() {
@@ -41,17 +46,18 @@ class Book {
         readBtn.textContent = 'Read';
         readBtn.classList.add('readbtn');
         readBtn.addEventListener('click', () => {
-            this.read=!this.read;
+            this.read = !this.read;
             book.setAttribute('data-read', this.read);
 
         })
 
 
 
-
-
         const removeBtn = document.createElement('button');
         removeBtn.textContent = 'Delete';
+        removeBtn.addEventListener('click', () => {
+            book.remove();
+        })
 
         text.appendChild(titleDisplay);
         text.appendChild(authorDisplay);
@@ -73,11 +79,33 @@ class Book {
 
 }
 
-let test = new Book('berserk', 'Miura', 130, true);
+
+
+
+
+
+
+
+let test = new Book('berserk', 'Miura', 130, false);
+let test2 = new Book('1984', 'George Orwell', 328, false);
 
 test.display();
+test2.display();
 test.display();
-test.display();
 
 
 
+const submit = document.querySelector('#submit');
+submit.addEventListener('click', () => {
+    const title = document.querySelector('#newTitle').value;
+    const author = document.querySelector('#newAuthor').value;
+    const pages = document.querySelector('#newPages').value;
+    const read = document.querySelector('#newRead').checked;
+    let newBook = new Book(title, author, pages, read)
+    newBook.display();
+    console.log(read);
+})
+
+
+
+//TODO: add connection to a server using mongoose mongodb and express js
