@@ -52,6 +52,7 @@ class Book {
             if (this.read) { readBtn.textContent = 'Read'; }
             else { readBtn.textContent = 'Not Read'; }
 
+
         })
 
 
@@ -107,7 +108,7 @@ submit.addEventListener('click', () => {
     const read = document.querySelector('#newRead').checked;
     let newBook = new Book(title, author, pages, read)
     newBook.display();
-    console.log(read);
+
 })
 
 
