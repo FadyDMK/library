@@ -88,10 +88,11 @@ class Book {
 
 let test = new Book('berserk', 'Miura', 130, false);
 let test2 = new Book('1984', 'George Orwell', 328, false);
+let test3 = new Book('Red Storm Rising', 'Tom Clancy', 400, true);
 
 test.display();
 test2.display();
-test.display();
+test3.display();
 
 
 
