@@ -43,11 +43,14 @@ class Book {
         buttons.classList.add('buttons');
 
         const readBtn = document.createElement('button');
-        readBtn.textContent = 'Read';
+        if (this.read) { readBtn.textContent = 'Read'; }
+        else { readBtn.textContent = 'Not Read'; }
         readBtn.classList.add('readbtn');
         readBtn.addEventListener('click', () => {
             this.read = !this.read;
             book.setAttribute('data-read', this.read);
+            if (this.read) { readBtn.textContent = 'Read'; }
+            else { readBtn.textContent = 'Not Read'; }
 
         })
 
